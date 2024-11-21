@@ -1,0 +1,17 @@
+.body {
+    height: 100%; /* Asegura que el body y html ocupen todo el alto del viewport */
+    margin: 0; /* Quita márgenes por defecto */
+  }
+  
+  .centered {
+    background-color: #191c1c; /* Color de fondo */
+    color: white; /* Color del texto */
+    display: flex; /* Activar Flexbox */
+    margin: auto; /* Opcional, para asegurar compatibilidad */
+    position: absolute; /* Posicionamiento absoluto */
+    top: 50%; /* Ajusta el div al 50% de la altura */
+    left: 50%; /* Ajusta el div al 50% del ancho */
+    border: 1px solid #172c2c;
+    transform: translate(-50%, -50%); /* Corrige el desplazamiento al centro */
+  }
+ 

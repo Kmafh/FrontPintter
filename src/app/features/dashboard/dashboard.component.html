@@ -1,0 +1,87 @@
+<div class="card-p row">
+  <div class="col-12">
+    <mat-form-field appearance="outline" style="width: 100%">
+      <mat-label>Publicar</mat-label>
+      <input matInput placeholder="Placeholder" />
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div>
+  <div class="col-4 text-center">
+    <button mat-stroked-button color="primary" style="width: 100%">Obra</button>
+  </div>
+  <div class="col-4 text-center">
+    <button mat-stroked-button color="primary" style="width: 100%">
+      Artista
+    </button>
+  </div>
+  <div class="col-4 text-center">
+    <button mat-stroked-button color="primary" style="width: 100%">
+      Exposición
+    </button>
+  </div>
+</div>
+<div class="mt-4">
+  <app-image-slider></app-image-slider>
+</div>
+<div class="card-p row">
+  <div class="col-12 col-md-6">
+    <img
+      src="assets/img/art/1.jpg"
+      alt="Artwork"
+      class="img-fluid rounded-top"
+    />
+  </div>
+  <div class="col-md-6 text-center">
+    <div class="container mt-5 border-b">
+      <div class="d-flex align-items-center mb-2">
+        <!-- Imagen -->
+        <img
+          src="assets/img/art/1.jpg"
+          class="img-circle-fixed me-3"
+          alt="Imagen Circular"
+        />
+
+        <!-- Texto -->
+        <div>
+          <p class="mb-1">Nombre de Usuario</p>
+          <small class="text-muted">Fecha: 17 Nov 2024</small>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="mb-2 mt-2">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa cumque
+        ipsa reprehenderit, rem totam ratione soluta aperiam, non voluptatum
+        quos assumenda esse quibusdam quo laboriosam facilis. Iste possimus
+        doloribus maxime?
+      </div>
+    </div>
+    <div class="row text-end">
+      <div class="col-12">
+       <button
+          mat-icon-button
+          color="primary"
+          [matMenuTriggerFor]="menu"
+          aria-label="Example icon-button with a menu"
+        >
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <mat-icon>dialpad</mat-icon>
+            <span>Redial</span>
+          </button>
+          <button mat-menu-item disabled>
+            <mat-icon>voicemail</mat-icon>
+            <span>Check voice mail</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>notifications_off</mat-icon>
+            <span>Disable alerts</span>
+          </button>
+        </mat-menu>
+      </div>
+    </div>
+  </div>
+</div>

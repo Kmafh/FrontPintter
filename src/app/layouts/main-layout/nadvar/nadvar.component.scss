@@ -1,0 +1,140 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: #004f4f;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0; /* Fija la navbar en la parte superior */
+  left: 0; /* Asegura que esté alineada al lado izquierdo */
+  width: 100%; /* Hace que ocupe todo el ancho de la página */
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  
+    .logo {
+      width: 27px; /* Tamaño inicial */
+      height: auto; /* Ajusta la altura al contenido */
+      overflow: hidden; /* Oculta el contenido que sobresale */
+      transition: width 0.3s ease; /* Transición suave para expansión */
+    }
+    
+    .logo:hover {
+      width: 120px; /* Expande el div al pasar el ratón */
+    }
+    
+    .logo img {
+      height: auto; /* Mantiene la proporción de la imagen */
+    }
+    
+  
+    .nav-links {
+      display: flex;
+      padding: 0;
+      gap: 15px;
+      .li {
+        list-style: none;
+        a {
+          color: #00ddd5;
+          text-decoration: none;
+          transition: color 0.3s;
+          &:hover {
+            color: #90e0ef;
+          }
+        }
+      }
+    }
+  }
+  .navbar2{
+    top: 0; /* Posición fija en la parte superior */
+    z-index: 1010; /* Asegura que se superponga al segundo navbar */
+    display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  background-color: transparent;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0; /* Fija la navbar en la parte superior */
+  left: 0; /* Asegura que esté alineada al lado izquierdo */
+  width: 100%; /* Hace que ocupe todo el ancho de la página */
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  }
+  
+  .margin-nadvar {
+    margin-top: 58px; /* Da un margen superior para que el navbar de abajo no se solape */
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .circles {
+    display: flex; /* Alineación horizontal de los círculos */
+    gap: 5px; /* Espacio entre los círculos */
+  }
+  
+  .circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; /* Hace que el div sea redondo */
+    cursor: pointer; /* Hace que parezca un botón */
+    transition: transform 0.3s ease; /* Animación suave */
+    margin: 10px;
+  }
+  
+  .circle:hover {
+    transform: scale(1.2); /* Aumenta el tamaño del círculo al pasar el ratón */
+  }
+  
+  .red {
+    background-color: red;
+  }
+  
+  .green {
+    background-color: green;
+  }
+  
+  .blue {
+    background-color: blue;
+  }
+
+  .full-width {
+    width: 100%; /* Ocupa todo el ancho de la pantalla */
+    display: flex; /* Flexbox para centrar el contenido */
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
+    font-size: 24px; /* Tamaño del texto */
+    color: #333; /* Color del texto */
+    text-align: center; /* Por si el texto ocupa varias líneas */
+    
+  }
+  
+  .icon-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas fijas */
+    gap: 20px; /* Espaciado entre íconos */
+    padding: 20px;
+  }
+  
+  .icon-item {
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .icon-item:hover {
+    transform: scale(1.2);
+  }
+  
+  .icon-item span {
+    font-size: 24px;
+    color: #00796b;
+    margin-bottom: 10px;
+  }
+  
+  

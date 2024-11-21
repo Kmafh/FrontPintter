@@ -1,0 +1,22 @@
+.content {
+  height: 300px; /* Ajusta el tamaño fijo según tus necesidades */
+  overflow-y: auto;  /* Habilita el scroll vertical si el contenido excede el tamaño */
+  padding-right: 10px; /* Espacio extra para el scroll */
+  scrollbar-width: thin; /* Estilo del scroll en Firefox */
+  scrollbar-color: #888 #ccc; /* Colores personalizados para el scroll en Firefox */
+}
+
+/* Para personalizar el scroll en navegadores basados en Webkit (Chrome, Safari, Edge) */
+.content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.content::-webkit-scrollbar-thumb {
+  background-color: red;
+  border-radius: 4px;
+}
+
+.content::-webkit-scrollbar-track {
+  background-color: red;
+}
+ 

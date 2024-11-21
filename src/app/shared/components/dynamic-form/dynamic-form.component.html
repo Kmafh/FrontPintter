@@ -1,0 +1,154 @@
+<form [formGroup]="formGroup">
+  <ng-container *ngFor="let field of formData.data">
+    <!-- Render Input con Angular Material -->
+    <mat-form-field appearance="outline"
+      *ngIf="field.type === 'input' && !field.hidden"
+      [ngClass]="{ 'full-width': field.grid }"
+      class="px-1 py-1"
+    >
+      <mat-label>{{ field.label }}</mat-label>
+      <input
+        matInput
+        [formControlName]="field.name || ''"
+        [type]="field.currency ? 'number' : 'text'"
+        [required]="field.required || false"
+        [readonly]="field.readonly || false"
+        [attr.step]="field.currency ? '0.01' : null"
+        [attr.min]="field.currency ? '0' : null"
+        (keypress)="
+          (field.currency
+            ? ($event.charCode >= 48 && $event.charCode <= 57) ||
+              $event.charCode === 46
+            : true)
+        "
+      />
+    </mat-form-field>
+    <mat-form-field appearance="outline"
+      *ngIf="field.type === 'pass' && !field.hidden"
+      [ngClass]="{ 'full-width': field.grid }"
+      class="px-1 py-1"
+    >
+      <mat-label>Contraseña</mat-label>
+      <input
+        matInput
+        [formControlName]="field.name || ''"
+        [type]="field.currency ? 'number' : 'text'"
+        [required]="field.required || false"
+        [readonly]="field.readonly || false"
+        [attr.step]="field.currency ? '0.01' : null"
+        [attr.min]="field.currency ? '0' : null"
+        [type]="hide ? 'password' : 'text'"
+        (keypress)="
+          (field.currency
+            ? ($event.charCode >= 48 && $event.charCode <= 57) ||
+              $event.charCode === 46
+            : true)
+        "
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon>{{ hide ? "visibility_off" : "visibility" }}</mat-icon>
+      </button>
+    </mat-form-field>
+    <!-- Render Select con Angular Material -->
+    <mat-form-field appearance="outline"
+      *ngIf="field.type === 'select' && !field.hidden"
+      class="px-1 py-1"
+    >
+      <mat-label>{{ field.label }}</mat-label>
+      <mat-select
+        [formControlName]="field.name || ''"
+        [required]="field.required || false"
+        [disabled]="field.readonly || false"
+      >
+        <mat-option *ngFor="let option of field.option" [value]="option.value">
+          {{ option.label }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Render Radio Buttons con Angular Material -->
+    <div *ngIf="field.type === 'radio' && !field.hidden">
+      <mat-radio-group
+        [formControlName]="field.name || ''"
+        [disabled]="field.readonly || false"
+      >
+        <mat-radio-button
+          *ngFor="let option of field.option"
+          [value]="option.value"
+        >
+          {{ option.label }}
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div *ngIf="field.type === 'radioV' && !field.hidden">
+      {{ field.label }}
+      <mat-radio-group
+        [formControlName]="field.name || ''"
+        [disabled]="field.readonly || false"
+        class="vertical-radio-group"
+      >
+        <mat-radio-button
+          *ngFor="let option of field.option"
+          [value]="option.value"
+        >
+          {{ option.label }}
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <!-- Render Checkbox con Angular Material -->
+    <div *ngIf="field.type === 'checkbox' && !field.hidden">
+      <mat-checkbox
+        [formControlName]="field.name || ''"
+        [required]="field.required || false"
+        [disabled]="field.readonly || false"
+      >
+        {{ field.label }}
+      </mat-checkbox>
+    </div>
+
+    <!-- Render Datepicker con Angular Material -->
+    <mat-form-field appearance="outline"
+      *ngIf="field.type === 'date' && !field.hidden"
+      class="px-1 py-1"
+    >
+      <mat-label>{{ field.label }}</mat-label>
+      <input
+        matInput
+        [matDatepicker]="picker"
+        [formControlName]="field.name || ''"
+        [required]="field.required || false"
+        [readonly]="field.readonly || false"
+      />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <!-- Divider -->
+    <mat-divider
+      *ngIf="field.type === 'divider' && !field.hidden"
+    ></mat-divider>
+
+    <!-- Label (for static information) -->
+    <div
+      *ngIf="field.type === 'label' && !field.hidden"
+      class="full-width-label"
+    >
+      <label class="px-1 py-1">{{ field.label }}</label>
+    </div>
+
+    <!-- Button -->
+    <button
+      *ngIf="field.type === 'button' && !field.hidden"
+      mat-raised-button
+      color]="primary"
+      (click)="field.onClick()"
+    >
+      {{ field.label }}
+    </button>
+  </ng-container>
+</form>

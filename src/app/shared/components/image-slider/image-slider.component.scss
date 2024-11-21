@@ -1,0 +1,114 @@
+/* Contenedor del slider */
+swiper-container {
+    max-width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 20px 0;
+    overflow: hidden; /* Evita que el contenido se desborde */
+  }
+  
+  
+  /* Estilos de cada slide */
+  swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  swiper-slide img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover; /* Ajusta para evitar deformaciones */
+  }
+  
+  /* Efecto hover (solo en pantallas grandes) */
+  @media (min-width: 768px) {
+    swiper-slide:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
+    }
+  }
+  
+  /* Botones de navegación */
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #fff;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .swiper-button-next:hover,
+  .swiper-button-prev:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Paginación */
+  .swiper-pagination-bullet {
+    opacity: 1;
+  }
+  
+  .swiper-pagination-bullet-active {
+  }
+  
+  /* **RESPONSIVIDAD** */
+  
+  /* Ajustes para pantallas pequeñas (smartphones) */
+  @media (max-width: 450px) {
+    swiper-container {
+      padding: 10px 0;
+      max-width: 300px;
+
+    }
+  
+    swiper-slide {
+      font-size: 1rem; /* Reduce el tamaño del texto */
+      height: auto; /* Ajusta la altura de los slides automáticamente */
+    }
+  
+    .swiper-button-next,
+    .swiper-button-prev {
+      width: 30px;
+      height: 30px; /* Botones más pequeños */
+    }
+  }
+  
+  .image-container {
+    position: relative;
+    display: inline-block;
+    overflow: hidden; /* Asegura que el zoom no salga del contenedo
+  }
+  
+  .image-container img {
+    transition: transform 0.3s ease; /* Efecto de zoom */
+  }
+  
+  .image-container:hover img {
+    transform: scale(1.1); /* Aumenta el tamaño de la imagen */
+  }
+  
+  .image-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
+    color: #fff; /* Texto blanco */
+    text-align: center;
+    padding: 5px 0; /* Espaciado interno */
+    font-size: 1rem; /* Tamaño de texto */
+    font-weight: bold;
+    border-bottom-left-radius: 8px; /* Opcional: bordes redondeados */
+    border-bottom-right-radius: 8px;
+  }

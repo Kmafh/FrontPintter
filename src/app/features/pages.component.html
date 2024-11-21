@@ -1,0 +1,29 @@
+<div class="page-container">
+  <app-nadvar></app-nadvar>
+  <div class="content ">
+    <!-- Solo se muestra el mat-drawer-container en pantallas grandes -->
+    <mat-drawer-container *ngIf="!isMobile" class="example-container ">
+      <mat-drawer
+        #drawer
+        class="example-sidenav "
+        mode="side"
+        [opened]="drawerOpened"
+      >
+        <app-left-menu></app-left-menu>
+      </mat-drawer>
+
+      <!-- El botón para abrir/cerrar el sidenav -->
+      <button type="button" mat-stroked-button (click)="toggleDrawer()">
+        <span class="material-symbols-outlined spa">
+          {{ !drawerOpened ? "arrow_menu_open" : "arrow_menu_close" }}
+        </span>
+      </button>
+    </mat-drawer-container>
+
+    <!-- El contenido que no se ve afectado por el desplazamiento del sidenav -->
+    <section class="container">
+      <router-outlet></router-outlet>
+    </section>
+  </div>
+  <app-footer></app-footer>
+</div>

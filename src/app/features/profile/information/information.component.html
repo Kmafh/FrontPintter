@@ -1,0 +1,137 @@
+<div class="card-p">
+  <div class="row">
+    <div class="col-md-2 border-e">
+      <nav class="menu-left">
+        <ul>
+          <li
+            (click)="setActiveButton(0)"
+            [ngClass]="{ liactive: activeButton === 0 }"
+          >
+            General
+          </li>
+          <li
+            (click)="setActiveButton(1)"
+            [ngClass]="{ liactive: activeButton === 1 }"
+          >
+            Formación
+          </li>
+          <li
+            (click)="setActiveButton(2)"
+            [ngClass]="{ liactive: activeButton === 2 }"
+          >
+            Empleabilidad
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="col-md-10">
+      <mat-list role="list" *ngIf="activeButton === 0">
+        <mat-list-item role="listitem">
+          <button mat-button disabled>
+            <mat-icon>person</mat-icon>
+            <span>Su nombre completo es: </span></button
+          >{{ user?.name }} {{ user?.lastname }}
+        </mat-list-item>
+        <mat-list-item role="listitem">
+          <button mat-button disabled>
+            <mat-icon>trip_origin</mat-icon>
+            <span>Es </span></button
+          >{{ user?.sex || "Oculto" }}
+        </mat-list-item>
+        <mat-list-item role="listitem">
+            <button mat-button disabled>
+              <mat-icon>cake</mat-icon>
+              <span>Cumple el  </span></button
+            >{{ user?.sex || "Oculto" }}
+          </mat-list-item>
+        <mat-list-item role="listitem">
+          <div class="row">
+            <div class="col">
+              <button mat-button disabled>
+                <mat-icon>business_center</mat-icon>
+                <span>Su prfesión es </span></button
+              >{{ user?.pro || "Oculto" }} {{ user?.lastname }}
+            </div>
+            <div class="col text-end">
+              <button mat-icon-button>
+                <mat-icon>edit</mat-icon>
+              </button>
+            </div>
+          </div>
+        </mat-list-item>
+        <mat-list-item role="listitem">
+          <button mat-button disabled>
+            <mat-icon>mail</mat-icon>
+            <span>Su mail es </span></button
+          >{{ user?.email || "Oculto" }}
+        </mat-list-item>
+        <mat-list-item role="listitem">
+          <div class="row">
+            <div class="col">
+              <button mat-button disabled>
+                <mat-icon>add_location</mat-icon>
+                <span>Vive en </span></button
+              >{{ user?.city || "Oculto" }}
+            </div>
+            <div class="col text-end">
+              <button mat-icon-button>
+                <mat-icon>edit</mat-icon>
+              </button>
+            </div>
+          </div>
+        </mat-list-item>
+      </mat-list>
+
+      <mat-list role="list" *ngIf="activeButton === 1">
+        <mat-list-item role="listitem">
+          
+          <div class="row">
+            <div class="col">
+              <button mat-button disabled>
+                <mat-icon>school</mat-icon>
+                <span>Estudió </span></button
+              >{{ user?.study || "Oculto" }}
+            </div>
+            <div class="col text-end">
+              <button mat-icon-button>
+                <mat-icon>edit</mat-icon>
+              </button>
+            </div>
+          </div>
+        </mat-list-item>
+        <mat-list-item role="listitem">
+            <div class="row">
+                <div class="col">
+                  <button mat-button disabled>
+                    <mat-icon>school</mat-icon>
+                    <span>Cursó  </span></button
+                  >{{ user?.curs || "Oculto" }}
+                </div>
+                <div class="col text-end">
+                  <button mat-icon-button>
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                </div>
+              </div>
+        </mat-list-item>
+      </mat-list>
+      <mat-list role="list" *ngIf="activeButton === 2">
+        <mat-list-item role="listitem">
+            <div class="row">
+                <div class="col">
+                  <button mat-button disabled>
+                    <mat-icon>business_center</mat-icon>
+                    <span>Trabaja en  </span></button
+                  >{{ user?.job || "Oculto" }}
+                </div>
+                <div class="col text-end">
+                  <button mat-icon-button>
+                    <mat-icon>edit</mat-icon>
+                  </button>
+                </div>
+              </div>
+        </mat-list-item>
+      </mat-list>
+    </div>
+  </div>
+</div>

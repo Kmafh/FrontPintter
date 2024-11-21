@@ -1,0 +1,35 @@
+src/
+│
+├── app/
+│   ├── core/                # Servicios, guardias y lógica compartida
+│   │   ├── services/        # Servicios globales
+│   │   ├── interceptors/    # Interceptores HTTP
+│   │   ├── guards/          # Guardias de rutas
+│   │   ├── models/          # Modelos de datos (interfaces y clases)
+│   │   └── utils/           # Funciones utilitarias y helpers
+│   │
+│   ├── shared/              # Componentes y lógica reutilizable
+│   │   ├── components/      # Componentes compartidos (botones, modales)
+│   │   ├── directives/      # Directivas personalizadas
+│   │   ├── pipes/           # Pipes personalizados
+│   │   └── styles/          # Estilos SCSS globales
+│   │
+│   ├── features/            # Componentes por funcionalidad
+│   │   ├── auth/            # Autenticación (login, registro)
+│   │   ├── dashboard/       # Panel principal
+│   │   ├── users/           # Gestión de usuarios
+│   │   └── ...              # Otras funcionalidades
+│   │
+│   ├── layouts/             # Diseños específicos (navbar, sidebar, etc.)
+│   │   ├── main-layout/     # Layout principal
+│   │   └── auth-layout/     # Layout de autenticación
+│   │
+│   ├── app.component.ts     # Componente raíz
+│   └── app.routes.ts        # Configuración de rutas principales
+│
+├── assets/                  # Recursos estáticos (imágenes, JSON, fuentes)
+│
+├── environments/            # Configuración de entornos (dev, prod)
+│
+├── styles.scss              # Estilos globales
+└── ...

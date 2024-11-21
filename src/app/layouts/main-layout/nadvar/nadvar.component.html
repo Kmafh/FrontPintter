@@ -1,0 +1,119 @@
+<nav class="navbar2" *ngIf="color">
+  <div class="full-width">
+    <div class="circles">
+      <div class="circle red"></div>
+      <div class="circle green"></div>
+      <div class="circle blue"></div>
+    </div>
+  </div>
+</nav>
+
+<nav class="navbar" [ngClass]="[color ? 'margin-nadvar' :'']">
+  <div class="logo">
+    <img src="../../../../assets/img/logo.png" alt="" />
+  </div>
+  <div class="nav-links">
+    <div class="li">
+      <button
+        mat-button
+        aria-label="Example icon button with a vertical three dot icon"
+        [matMenuTriggerFor]="menu"
+        class="spa"
+      >
+        <span class="material-symbols-rounded spa"> apps </span>
+      </button>
+      <mat-menu #menu="matMenu" xPosition="before" class="custom-menu">
+        <div class="card-p my-2 mx-2">
+          Social
+          <mat-list role="list">
+            <mat-list-item role="listitem">
+              <button mat-button color="primary" style="width: 100%">
+                <span class="material-icons"> group </span>&nbsp; Amigos
+              </button>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              <button mat-button color="primary" style="width: 100%">
+                <span class="material-icons spa">favorite</span> &nbsp; Favoritos
+              </button>
+            </mat-list-item>
+          </mat-list>
+        </div>
+        <div class="card-p my-2 mx-2">
+          Crear
+          <mat-list role="list">
+            <mat-list-item role="listitem">
+              <button mat-button color="primary" style="width: 100%">
+                <span class="material-icons spa"> palette </span>&nbsp; Nueva obra
+              </button>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              <button mat-button color="primary" style="width: 100%">
+                <span class="material-icons spa">tv</span> &nbsp; Exposición
+              </button>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              <button mat-button color="primary" style="width: 100%">
+                <span class="material-icons spa">edit_note</span> &nbsp; Publicación
+              </button>
+            </mat-list-item>
+          </mat-list>
+        </div>
+        <div class="card-p my-2 mx-2">
+          Crear
+          <mat-list role="list">
+            <mat-list-item role="listitem">
+              <button mat-button color="primary" style="width: 100%" (click)="color?color=false:color=true">
+                <span class="material-icons spa"> palette </span>&nbsp; Tema
+              </button>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              <button mat-button color="primary" style="width: 100%">
+                <span class="material-icons spa">tv</span> &nbsp; Exposición
+              </button>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              <button mat-button color="primary" style="width: 100%">
+                <span class="material-icons spa">edit_note</span> &nbsp; Publicación
+              </button>
+            </mat-list-item>
+          </mat-list>
+        </div>
+      </mat-menu>
+      <button
+        mat-button
+        aria-label="Example icon button with a vertical three dot icon"
+      >
+        <span class="material-symbols-rounded spa"> notifications </span>
+      </button>
+      <button
+        mat-button
+        aria-label="Example icon button with a vertical three dot icon"
+        [matMenuTriggerFor]="menuUser"
+      >
+        <span class="material-symbols-rounded spa"> person </span>
+      </button>
+      <mat-menu #menuUser="matMenu" xPosition="before">
+        <div class="card-p mx-2">
+          Administración
+          <mat-list role="list">
+            <mat-list-item role="listitem">
+              <button mat-button color="primary" style="width: 100%" routerLink="/profile">
+                <span class="material-icons spa"> account_circle </span>&nbsp; Perfil
+              </button>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              <button mat-button color="primary" style="width: 100%">
+                <span class="material-icons spa">settings</span>  Ajustes
+              </button>
+            </mat-list-item>
+            <mat-list-item role="listitem">
+              <button mat-button color="primary" style="width: 100%">
+                <span class="material-icons spa">logout</span> &nbsp; Salir
+              </button>
+            </mat-list-item>
+          </mat-list>
+        </div>
+      </mat-menu>
+    </div>
+  </div>
+</nav>
