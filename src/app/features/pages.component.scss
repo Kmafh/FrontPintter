@@ -19,7 +19,6 @@
   border-bottom-right-radius: 20px;
   background-color: #191c1c;
   margin-top: 5px;
-  width: 400px;
 }
 
 /* Estilo para el drawer en la izquierda (no cambia) */
@@ -32,17 +31,6 @@
   width: 200px;
   background-color: #191c1c;
 
-}
-
-/* Estilo para el drawer en la derecha */
-.right-drawer {
-  padding: 20px;
-  position: absolute;
-  top: 0;
-  right: 0; /* Cambia la posición del drawer para que se desplace hacia la derecha */
-  height: 100%;
-  width: 200px;
-  background-color: #191c1c;
 }
 
 section.container {

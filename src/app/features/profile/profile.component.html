@@ -1,5 +1,5 @@
 <section class="fondo row ">
-    <div class="container mt-5 pt-5 col-md-5">
+    <div class=" mt-5 pt-5 col-md-5">
         <div class="d-flex align-items-center mb-2">
           <!-- Imagen -->
           <img
@@ -7,7 +7,6 @@
             class="img-circle-fixed-big me-3"
             alt="Imagen Circular"
           />
-  
           <!-- Texto -->
           <div>
             <h4 class="mb-1 text-white">{{user?.name}} {{user?.lastname}}</h4>
@@ -19,11 +18,11 @@
     <div class="d-flex align-items-end text-end d-flex justify-content-end mb-2 col-md-5">
         <button mat-flat-button>
             <mat-icon>insert_photo</mat-icon>
-            <span>Editar imagen</span>
+            <span class="d-none d-sm-block">Editar imagen</span>
           </button>
-          <button mat-button>
+          <button mat-button (click)="openDialog()">
             <mat-icon>edit</mat-icon>
-            <span>Editar perfil</span>
+            <span class="d-none d-sm-block">Editar perfil</span>
           </button>
       </div>
 </section>
@@ -37,13 +36,13 @@
       </div>
       <div class="col-3 col-md-2 text-center" [ngClass]="{'border-bottom2': activeButton === 1}">
         <button mat-button (click)="setActiveButton(1)">
-          <mat-icon>dialpad</mat-icon>
+          <mat-icon>event_available</mat-icon>
           <span class="d-none d-md-block">Acontecimientos</span>
         </button>
       </div>
       <div class="col-3 col-md-2 text-center" [ngClass]="{'border-bottom2': activeButton === 2}">
         <button mat-button (click)="setActiveButton(2)">
-          <mat-icon>dialpad</mat-icon>
+          <mat-icon> local_play</mat-icon>
           <span class="d-none d-md-block">Estadisticas</span>
         </button>
       </div>

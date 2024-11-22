@@ -1,0 +1,17 @@
+<div class="container py-2 bg-dark">
+    <div class="text-end"><span class="material-symbols-outlined">
+        close
+        </span></div>
+    <mat-divider></mat-divider>
+    <section class="mt-2 text-end">
+        <app-dynamic-form
+        [formData]="dynamicGroup"
+        (formGroupChange)="onFormGroupChange($event)" 
+      ></app-dynamic-form>
+      <button mat-flat-button>
+        <mat-icon>insert_photo</mat-icon>
+        <span class="d-none d-sm-block">Actualizar</span>
+      </button>
+    </section>
+    
+</div>

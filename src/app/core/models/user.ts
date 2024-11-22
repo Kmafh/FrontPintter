@@ -11,6 +11,13 @@ export class User {
         public role?: string,
         public password?: string,
         public active?: boolean,
+        public createAt?:Date,
+        public sex?:string,
+        public job?:string,
+        public city?:string,
+        public curs?:string,
+        public pro?:string,
+        public study?:string
     ){}
 
 

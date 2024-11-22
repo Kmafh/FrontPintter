@@ -2,7 +2,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
-import { BaseService } from '../services/base/base.service';
+import { BaseService } from '../../core/services/base/base.service';
 
 export class Utils {
   constructor(
@@ -59,15 +59,6 @@ export class Utils {
     });
   }
 
-  static openSnackBarManual(
-    snackBar: MatSnackBar,
-    text = 'Hecho',
-    action = 'Cerrar'
-  ) {
-    snackBar.open(text, action, {
-    });
-  }
-
   static setHours(data: any, hours: any) {
     const filteredItems =
       data?.items[0].filter((item: any) => {
@@ -92,17 +83,12 @@ export class Utils {
     const date = new Date(value);
     const options: Intl.DateTimeFormatOptions = {
       weekday: 'long',
+      year: 'numeric',
       month: 'long',
       day: 'numeric',
     };
-  
-    // Obtiene la fecha formateada
-    const formattedDate = date.toLocaleDateString('es-ES', options);
-  
-    // Capitaliza la primera letra del mes (o cualquier palabra que inicie)
-    return formattedDate.replace(/\b\w/, char => char.toUpperCase());
+    return date.toLocaleDateString('es-ES', options);
   }
-  
 
   static formatNumber(num: number): string {
     const roundedNum = Math.round(num * 100) / 100; // Redondea a dos decimales

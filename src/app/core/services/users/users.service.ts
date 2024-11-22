@@ -107,8 +107,8 @@ export class UserService {
       })
       .pipe(
         map((resp: any) => {
-          const { name, lastname, email, uid, role, img } = resp.usuario;
-          this.user = new User(name, lastname, email, uid, img, role );
+          const { name, lastname, email, uid, role, img, createAt, sex, job, city, curs, pro, study } = resp.usuario;
+          this.user = new User(name, lastname, email, uid, img, role, '',true,createAt, sex, job, city, curs, pro, study );
           sessionStorage.setItem('token', resp.token);
           return true;
         }),
@@ -127,7 +127,7 @@ export class UserService {
       delay(500),
       map( (resp:any) => {
          let Users = resp.usuarios as User[];
-         Users = Users.map(user => new User(user.name, user.lastname, user.email, user.uid, user.img! , user.role!))
+         Users = Users.map(user => new User(user.name, user.lastname, user.email, user.uid, user.role!))
         return {
           Users,
           total: resp.total

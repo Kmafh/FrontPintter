@@ -32,7 +32,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-
+import { MAT_DATE_LOCALE } from '@angular/material/core';
 @Component({
   selector: 'app-dynamic-form',
   templateUrl: './dynamic-form.component.html',
@@ -68,7 +68,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatProgressBarModule,
     MatAutocompleteModule,
     MatCheckboxModule,
-  ]
+  ],
+  providers: [
+    { provide: MAT_DATE_LOCALE, useValue: 'es-ES' }, // Cambiar idioma a español
+  ],
 })
 export class DynamicFormComponent {
   @Input() formData!: FormData;
@@ -127,4 +130,5 @@ export class DynamicFormComponent {
   
     this.formGroupChange.emit(this.formGroup);
   }
+  
 }  

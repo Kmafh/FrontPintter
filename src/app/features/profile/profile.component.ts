@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -17,6 +17,8 @@ import { UserService } from '../../core/services/users/users.service';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from 'express';
 import { MatDialog } from '@angular/material/dialog';
+import { EditUserComponent } from '../../shared/components/dialog/edit-user/edit-user.component';
+import { FormsUser } from './models/forms';
 
 @Component({
   selector: 'app-profile',
@@ -29,11 +31,11 @@ export class ProfileComponent implements OnInit{
 
   user: User | null = null;
   private userSubscription!: Subscription;
-  dynamicGroup: any = 0;
-
+  
 //  Utils
   // Variable para almacenar el índice del botón activo
  activeButton: number = 0;
+ readonly dialog = inject(MatDialog);
 
  constructor(
   public baseService: BaseService,
@@ -56,4 +58,16 @@ export class ProfileComponent implements OnInit{
  setActiveButton(index: number): void {
    this.activeButton = index;
  }
+
+  openDialog(): void {
+    const data:any = {group:'update', value: this.user}
+    const dialogRef = this.dialog.open(EditUserComponent, {
+      data,
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      
+    });
+  }
 }

@@ -1,0 +1,25 @@
+<div class="spinner-overlay" *ngIf="spinner">
+    <div class="spinner-container">
+      <div class="spinner"></div>
+    </div>
+  </div>
+<div class="container py-2 bg-dark" *ngIf="!spinner">
+    <div class="text-end"> <a class="pointer"><span class="material-symbols-outlined " (click)="onNoClick()">
+        close
+        </span></a></div>
+    <mat-divider></mat-divider>
+    <section class="mt-2">
+        <app-dynamic-form
+        [formData]="dynamicGroup"
+        (formGroupChange)="onFormGroupChange($event)" 
+      ></app-dynamic-form>
+      <div class="text-end">
+        <button mat-flat-button (click)="onClick(dynamicForm)">
+            <mat-icon>insert_photo</mat-icon>
+            <span class="d-none d-sm-block">Actualizar</span>
+          </button>
+      </div>
+     
+    </section>
+    
+</div>

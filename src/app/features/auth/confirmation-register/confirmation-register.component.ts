@@ -22,12 +22,18 @@ export class ConfirmationRegisterComponent  implements OnInit {
     public router: Router,
   ) {
     this.registerForm = this.fb.group({
-      nick: [''],
-      email: [''],
-      password: [''],
       name: [''],
       lastname: [''],
-      img: ['']
+      email: [''],
+      password: [''],
+      img: [''],
+      createAt: [''],
+      sex: [''],
+      pro: [''],
+      city: [''],
+      study: [''],
+      curs: [''],
+      job: [''],
     });
   }
 

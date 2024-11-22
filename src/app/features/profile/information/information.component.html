@@ -1,6 +1,6 @@
 <div class="card-p">
   <div class="row">
-    <div class="col-md-2 border-e">
+    <div class="col-lg-2 border-e">
       <nav class="menu-left">
         <ul>
           <li
@@ -24,36 +24,36 @@
         </ul>
       </nav>
     </div>
-    <div class="col-md-10">
+    <div class="col-lg-10">
       <mat-list role="list" *ngIf="activeButton === 0">
         <mat-list-item role="listitem">
           <button mat-button disabled>
             <mat-icon>person</mat-icon>
-            <span>Su nombre completo es: </span></button
-          >{{ user?.name }} {{ user?.lastname }}
+            <span class="d-none d-sm-block">Su nombre completo es: </span></button
+          >{{ userFormat?.name }} {{ userFormat?.lastname }}
         </mat-list-item>
         <mat-list-item role="listitem">
           <button mat-button disabled>
             <mat-icon>trip_origin</mat-icon>
-            <span>Es </span></button
-          >{{ user?.sex || "Oculto" }}
+            <span class="d-none d-sm-block">Es </span></button
+          >{{ userFormat?.sex }}
         </mat-list-item>
         <mat-list-item role="listitem">
             <button mat-button disabled>
               <mat-icon>cake</mat-icon>
-              <span>Cumple el  </span></button
-            >{{ user?.sex || "Oculto" }}
+              <span class="d-none d-sm-block">Cumple el  </span></button
+            >{{ userFormat?.createAt || "Oculto" }}
           </mat-list-item>
         <mat-list-item role="listitem">
           <div class="row">
             <div class="col">
               <button mat-button disabled>
                 <mat-icon>business_center</mat-icon>
-                <span>Su prfesión es </span></button
-              >{{ user?.pro || "Oculto" }} {{ user?.lastname }}
+                <span class="d-none d-sm-block">Su prfesión es </span></button
+              >{{ userFormat?.pro }} 
             </div>
             <div class="col text-end">
-              <button mat-icon-button>
+              <button mat-icon-button (click)="openDialog('pro')">
                 <mat-icon>edit</mat-icon>
               </button>
             </div>
@@ -62,19 +62,19 @@
         <mat-list-item role="listitem">
           <button mat-button disabled>
             <mat-icon>mail</mat-icon>
-            <span>Su mail es </span></button
-          >{{ user?.email || "Oculto" }}
+            <span class="d-none d-sm-block">Su mail es </span></button
+          >{{ userFormat?.email }}
         </mat-list-item>
         <mat-list-item role="listitem">
           <div class="row">
             <div class="col">
               <button mat-button disabled>
                 <mat-icon>add_location</mat-icon>
-                <span>Vive en </span></button
-              >{{ user?.city || "Oculto" }}
+                <span class="d-none d-sm-block">Vive en </span></button
+              >{{ userFormat?.city  }}
             </div>
             <div class="col text-end">
-              <button mat-icon-button>
+              <button mat-icon-button (click)="openDialog('city')">
                 <mat-icon>edit</mat-icon>
               </button>
             </div>
@@ -89,11 +89,11 @@
             <div class="col">
               <button mat-button disabled>
                 <mat-icon>school</mat-icon>
-                <span>Estudió </span></button
-              >{{ user?.study || "Oculto" }}
+                <span class="d-none d-sm-block">Estudió </span></button
+              >{{ userFormat?.study}}
             </div>
             <div class="col text-end">
-              <button mat-icon-button>
+              <button mat-icon-button (click)="openDialog('study')">
                 <mat-icon>edit</mat-icon>
               </button>
             </div>
@@ -104,11 +104,11 @@
                 <div class="col">
                   <button mat-button disabled>
                     <mat-icon>school</mat-icon>
-                    <span>Cursó  </span></button
-                  >{{ user?.curs || "Oculto" }}
+                    <span class="d-none d-sm-block"> Cursó  </span></button
+                  >{{ userFormat?.curs}}
                 </div>
                 <div class="col text-end">
-                  <button mat-icon-button>
+                  <button mat-icon-button (click)="openDialog('curs')">
                     <mat-icon>edit</mat-icon>
                   </button>
                 </div>
@@ -121,11 +121,11 @@
                 <div class="col">
                   <button mat-button disabled>
                     <mat-icon>business_center</mat-icon>
-                    <span>Trabaja en  </span></button
-                  >{{ user?.job || "Oculto" }}
+                    <span class="d-none d-sm-block">Trabaja en  </span></button
+                  >{{ userFormat?.job }}
                 </div>
                 <div class="col text-end">
-                  <button mat-icon-button>
+                  <button mat-icon-button (click)="openDialog('job')">
                     <mat-icon>edit</mat-icon>
                   </button>
                 </div>

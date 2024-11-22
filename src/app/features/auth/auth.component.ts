@@ -96,10 +96,15 @@ export class AuthComponent implements OnInit{
     let registerUser: any;
     const url: string = `${endpoint}/login/sendMail`;
     this.spinner = true;
-    
+const ocul = 'Oculto'
     if (this.dynamicForm.valid) {
       registerUser = this.dynamicForm.value;
-      registerUser.img = '1'
+      registerUser.img = 1
+      registerUser.pro = ocul
+      registerUser.city = ocul
+      registerUser.study = ocul
+      registerUser.curs = ocul
+      registerUser.job = ocul
       Utils.postItem(
         url,
         registerUser,
