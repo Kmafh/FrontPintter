@@ -5,6 +5,8 @@ import { ProfileComponent } from './features/profile/profile.component';
 import { AuthComponent } from './features/auth/auth.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { ConfirmationRegisterComponent } from './features/auth/confirmation-register/confirmation-register.component';
+import { ObrasComponent } from './features/obras/obras.component';
+import { ShowImgComponent } from './shared/components/show-img/show-img.component';
 
 export const routes: Routes = [
   {
@@ -21,6 +23,22 @@ export const routes: Routes = [
     canActivate: [AuthGuard],
     children: [
       { path: '', component: ProfileComponent, data: { title: 'Dashboard' } },
+    ],
+  },
+  {
+    path: 'obra',
+    component: PagesComponent,
+    canActivate: [AuthGuard],
+    children: [
+      { path: '', component: ObrasComponent, data: { title: 'Dashboard' } },
+    ],
+  },
+  {
+    path: 'obra/:id',
+    component: PagesComponent,
+    canActivate: [AuthGuard],
+    children: [
+      { path: '', component: ShowImgComponent, data: { title: 'Dashboard' } },
     ],
   },
   {

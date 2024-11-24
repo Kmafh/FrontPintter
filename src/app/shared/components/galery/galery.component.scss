@@ -1,0 +1,33 @@
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    padding: 10px;
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  div#scrollAnchor {
+    height: 1px;
+  }
+  .image-container {
+    width: 100%; /* 100% del contenedor padre */
+    max-width: 100%; /* Ancho máximo para evitar que crezca demasiado */
+    height: 200px; /* Altura fija */
+    margin: 16px auto; /* Centrar el contenedor horizontalmente */
+    display: flex;
+    align-items: center; /* Centrar la imagen verticalmente */
+    justify-content: center; /* Centrar la imagen horizontalmente */
+    overflow: hidden; /* Ocultar cualquier parte de la imagen que sobresalga */
+  }
+  
+  /* Imagen responsiva */
+  .image-preview {
+    max-width: 100%; /* Ajustar ancho máximo al del contenedor */
+    max-height: 100%; /* Ajustar altura máxima al del contenedor */
+    object-fit: contain; /* Mantener proporciones dentro del contenedor */
+  }

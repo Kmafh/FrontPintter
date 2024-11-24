@@ -1,0 +1,55 @@
+.mat-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 16px;
+    height: 36px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 36px;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 4px;
+    overflow: hidden;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    background-color: #6200ea; /* Color de fondo primario */
+    color: white; /* Texto blanco */
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .mat-button:hover {
+    background-color: #3700b3; /* Fondo al pasar el cursor */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .mat-button:active {
+    background-color: #1a00a7; /* Fondo al hacer clic */
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .mat-button:focus {
+    box-shadow: 0px 0px 0px 2px rgba(98, 0, 234, 0.4);
+  }
+  /* Contenedor del div */
+.image-container {
+    width: 100%; /* 100% del contenedor padre */
+    max-width: 100%; /* Ancho máximo para evitar que crezca demasiado */
+    height: 300px; /* Altura fija */
+    margin: 16px auto; /* Centrar el contenedor horizontalmente */
+    display: flex;
+    align-items: center; /* Centrar la imagen verticalmente */
+    justify-content: center; /* Centrar la imagen horizontalmente */
+    overflow: hidden; /* Ocultar cualquier parte de la imagen que sobresalga */
+  }
+  
+  /* Imagen responsiva */
+  .image-preview {
+    max-width: 100%; /* Ajustar ancho máximo al del contenedor */
+    max-height: 100%; /* Ajustar altura máxima al del contenedor */
+    object-fit: contain; /* Mantener proporciones dentro del contenedor */
+  }
+  
+    

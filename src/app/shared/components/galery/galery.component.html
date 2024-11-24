@@ -1,0 +1,25 @@
+<div class="card-p row mt-3">
+  <div class="col-12">
+    <mat-form-field appearance="outline" style="width: 100%">
+      <mat-label>Busqueda...</mat-label>
+      <input matInput placeholder="Placeholder" />
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div>
+  <div class="col-12 text-end">
+    <button mat-stroked-button color="primary">Buscar obra</button>
+  </div>
+</div>
+<div class="gallery mt-3">
+  <div *ngFor="let image of displayedImages" class="image-container">
+    <a  [routerLink]="['/obra', image.id]">
+    <div class="image-container card-p">
+      <img src="{{ image.img }}" alt="Previsualización" class="image-preview" />
+      <div class="image-title">{{ image.name }}</div>
+    </div>
+  </a>
+  </div>
+</div>
+
+<!-- Detector del final del scroll -->
+<div #scrollAnchor></div>

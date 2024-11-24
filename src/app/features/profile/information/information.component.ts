@@ -3,7 +3,6 @@ import { Component, inject, Input, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-import { EditUserInformationComponent } from '../../../shared/components/dialog/edit-user-information/edit-user-information.component';
 import { MatDialog } from '@angular/material/dialog';
 import { Utils } from '../../../core/utils/utils';
 import { EditUserComponent } from '../../../shared/components/dialog/edit-user/edit-user.component';

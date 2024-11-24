@@ -1,7 +1,21 @@
-<div class="page-container">
+<div class="container-fluid pt-5 bg-oscuro">
   <app-nadvar></app-nadvar>
+<div class="row">
+  <div class="col-1">
+    <app-left-menu></app-left-menu>
+  </div>
+  <div class="col-10 ">
+    <router-outlet></router-outlet>
+
+  </div>
+</div>
+
+</div>
+
+
+
+<!-- <div class="page-container">
   <div class="content ">
-    <!-- Solo se muestra el mat-drawer-container en pantallas grandes -->
     <mat-drawer-container *ngIf="!isMobile" class="example-container ">
       <mat-drawer
         #drawer
@@ -12,19 +26,16 @@
         <app-left-menu></app-left-menu>
       </mat-drawer>
 
-      <!-- El botón para abrir/cerrar el sidenav -->
       <button type="button" mat-stroked-button (click)="toggleDrawer()">
         <span class="material-symbols-outlined spa">
           {{ !drawerOpened ? "arrow_menu_open" : "arrow_menu_close" }}
         </span>
       </button>
-      <!-- El contenido que no se ve afectado por el desplazamiento del sidenav -->
-    
     </mat-drawer-container>
+
     <section class="container">
       <router-outlet></router-outlet>
     </section>
-    
   </div>
   <app-footer></app-footer>
-</div>
+</div> -->

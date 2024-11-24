@@ -1,5 +1,22 @@
 <mat-list role="list">
     <mat-list-item role="listitem">
-      <button mat-button color="primary" style="width: 100%;" routerLink="/dashboard"><mat-icon>home</mat-icon> Inicio</button>
+      <button mat-button color="primary" style="width: 100%;" routerLink="/dashboard" routerLinkActive="active-link" matTooltip="Inicio" matTooltipPosition="right"><span class="material-icons"> home </span></button>
     </mat-list-item>
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        <button mat-button color="primary" style="width: 100%" routerLink="/obra" routerLinkActive="active-link" matTooltip="Mis obras" matTooltipPosition="right">
+          <span class="material-icons"> palette </span>
+        </button>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <button mat-button color="primary" style="width: 100%" routerLinkActive="active-link" matTooltip="Exposiciones" matTooltipPosition="right">
+          <span class="material-icons">tv</span> 
+        </button>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <button mat-button color="primary" style="width: 100%" routerLinkActive="active-link" matTooltip="Publicaciónes" matTooltipPosition="right">
+          <span class="material-icons">edit_note</span>
+        </button>
+      </mat-list-item>
+    </mat-list>
   </mat-list>

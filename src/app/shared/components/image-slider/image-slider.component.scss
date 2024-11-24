@@ -84,31 +84,4 @@ swiper-container {
     }
   }
   
-  .image-container {
-    position: relative;
-    display: inline-block;
-    overflow: hidden; /* Asegura que el zoom no salga del contenedo
-  }
   
-  .image-container img {
-    transition: transform 0.3s ease; /* Efecto de zoom */
-  }
-  
-  .image-container:hover img {
-    transform: scale(1.1); /* Aumenta el tamaño de la imagen */
-  }
-  
-  .image-title {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
-    color: #fff; /* Texto blanco */
-    text-align: center;
-    padding: 5px 0; /* Espaciado interno */
-    font-size: 1rem; /* Tamaño de texto */
-    font-weight: bold;
-    border-bottom-left-radius: 8px; /* Opcional: bordes redondeados */
-    border-bottom-right-radius: 8px;
-  }

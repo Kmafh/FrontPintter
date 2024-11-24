@@ -58,6 +58,7 @@
     <!-- Render Select con Angular Material -->
     <mat-form-field appearance="outline"
       *ngIf="field.type === 'select' && !field.hidden"
+      [ngClass]="{ 'full-width': field.grid }"
       class="px-1 py-1"
     >
       <mat-label>{{ field.label }}</mat-label>
@@ -71,7 +72,24 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
+    <mat-form-field appearance="outline"
+  *ngIf="field.type === 'textarea' && !field.hidden"
+  [ngClass]="{ 'full-width': field.grid }"
+  class="px-1 py-1"
+>
+  <mat-label>{{ field.label }}</mat-label>
+  <textarea
+    matInput
+    [formControlName]="field.name || ''"
+    [required]="field.required || false"
+    [readonly]="field.readonly || false"
+    rows=" 3"
+    cols=" 30"
+    placeholder="Descripción aquí"
+  ></textarea>
+</mat-form-field>
 
+  
     <!-- Render Radio Buttons con Angular Material -->
     <div *ngIf="field.type === 'radio' && !field.hidden">
       <mat-radio-group
@@ -151,4 +169,6 @@
       {{ field.label }}
     </button>
   </ng-container>
+
+  
 </form>

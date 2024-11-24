@@ -1,0 +1,83 @@
+<div class="spinner-overlay" *ngIf="spinner">
+  <div class="spinner-container">
+    <div class="spinner"></div>
+  </div>
+</div>
+<div class="container py-2 bg-dark" *ngIf="!spinner">
+  <div class="text-end">
+    <a class="pointer"
+      ><span class="material-symbols-outlined" (click)="onNoClick()">
+        close
+      </span></a
+    >
+  </div>
+  <mat-divider></mat-divider>
+
+  <div class="row">
+    <div class="col-md-8 px-4 py-4">
+      <!-- <img
+        src="assets/img/art/1.jpg"
+        alt="Artwork"
+        class="img-fluid rounded-top"
+      /> -->
+      <div class="image-container card-p">
+        <img 
+          *ngIf="imagePreview" 
+          [src]="imagePreview" 
+          alt="Previsualización" 
+          class="image-preview" 
+        />
+        <img 
+          *ngIf="!imagePreview" 
+          src="assets/img/no-img.png" 
+          alt="Previsualización" 
+          class="image-preview" 
+        />
+      </div>
+    </div>
+    <div class="col-md-4">
+      <section class="mt-2">
+        <app-dynamic-form
+          [formData]="dynamicGroup"
+          (formGroupChange)="onFormGroupChange($event)"
+        ></app-dynamic-form>
+      </section>
+    </div>
+    <div class="col-8 text-center">
+      <button
+        mat-button
+        (click)="openBottomSheet()"
+        class="mt-2"
+        *ngIf="upImg === 0"
+      >
+        <mat-icon>insert_photo</mat-icon>
+        <span class="d-none d-sm-block">Imagen</span>
+      </button>
+      <form enctype="multipart/form-data" *ngIf="upImg === 1">
+        <button
+          mat-flat-button
+          type="button"
+          (click)="triggerFileInput($event)"
+          class="mt-2"
+        >
+        <mat-icon>insert_photo</mat-icon>
+          Seleccionar Imagen
+        </button>
+        {{ this.file.name }}
+        <input
+          type="file"
+          id="fileInput"
+          accept="image/*"
+          hidden
+          (change)="onFileSelected($event)"
+        />
+      </form>
+    </div>
+    <div class="col-4 text-end">
+      <button mat-flat-button (click)="onClick(dynamicForm)" class="mt-2">
+        <mat-icon>insert_photo</mat-icon>
+        <span class="d-none d-sm-block">Actualizar</span>
+      </button>
+    </div>
+  </div>
+</div>

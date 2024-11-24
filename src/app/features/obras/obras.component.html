@@ -1,0 +1,51 @@
+<div class="container">
+    <section class="row ">
+        <div class="col-5 ">
+          <h5 class="mt-2 text-white">Mis Obras</h5>
+        </div>
+        <div
+          class="d-flex align-items-end text-end d-flex justify-content-end mb-2 col-7"
+        >
+          <button mat-button (click)="openDialog()">
+            <mat-icon>edit</mat-icon>
+            <span class="d-none d-sm-block">Añadir obra</span>
+          </button>
+        </div>
+      </section>
+
+<section class="my-2">
+  <div class="row">
+    <div
+      class="col-3 col-md-2 text-center"
+      [ngClass]="{ 'border-bottom2': activeButton === 0 }"
+    >
+      <button mat-button (click)="setActiveButton(0)"style="width: 100%;">
+        <mat-icon>info</mat-icon>
+        <span class="d-none d-md-block">Todas</span>
+      </button>
+    </div>
+    <div
+      class="col-3 col-md-2 text-center"
+      [ngClass]="{ 'border-bottom2': activeButton === 1 }"
+    >
+      <button mat-button (click)="setActiveButton(1)"style="width: 100%;">
+        <mat-icon>event_available</mat-icon>
+        <span class="d-none d-md-block">Expuestas</span>
+      </button>
+    </div>
+    <div
+      class="col-3 col-md-2 text-center"
+      [ngClass]="{ 'border-bottom2': activeButton === 2 }"
+    >
+      <button mat-button (click)="setActiveButton(2)"style="width: 100%;">
+        <mat-icon> local_play</mat-icon>
+        <span class="d-none d-md-block">Favoritas</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section>
+  <app-galery [dataSource]="dataSource"*ngIf="activeButton === 0"></app-galery>
+</section>
+</div>

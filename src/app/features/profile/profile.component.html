@@ -28,20 +28,20 @@
 </section>
 <section class="my-2">
     <div class="row">
-      <div class="col-3 col-md-2 text-center" [ngClass]="{'border-bottom2': activeButton === 0}">
-        <button mat-button (click)="setActiveButton(0)">
+      <div class="col-3 col-md-2 text-center" [ngClass]="{'border-bottom2': activeButton === 0}" >
+        <button mat-button (click)="setActiveButton(0)" style="width: 100%;">
           <mat-icon>info</mat-icon>
           <span class="d-none d-md-block">Información</span>
         </button>
       </div>
       <div class="col-3 col-md-2 text-center" [ngClass]="{'border-bottom2': activeButton === 1}">
-        <button mat-button (click)="setActiveButton(1)">
+        <button mat-button (click)="setActiveButton(1)" style="width: 100%;">
           <mat-icon>event_available</mat-icon>
           <span class="d-none d-md-block">Acontecimientos</span>
         </button>
       </div>
       <div class="col-3 col-md-2 text-center" [ngClass]="{'border-bottom2': activeButton === 2}">
-        <button mat-button (click)="setActiveButton(2)">
+        <button mat-button (click)="setActiveButton(2)" style="width: 100%;">
           <mat-icon> local_play</mat-icon>
           <span class="d-none d-md-block">Estadisticas</span>
         </button>

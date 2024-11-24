@@ -26,6 +26,7 @@ body { margin: 0; color:azure; font-family: "Geist Mono", monospace;
     border-radius: 15px;  /* Bordes redondeados */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);  /* Sombra para darle profundidad */
     padding: 20px;  /* Espaciado interno */
+    margin-right: 20px;
     border: 1px solid #3f4948;
   }
 
@@ -78,8 +79,8 @@ body { margin: 0; color:azure; font-family: "Geist Mono", monospace;
   .pointer {
     cursor: pointer;
   }
-  .bg-black {
-    background-color: #191c1c;
+  .bg-oscuro {
+    background-color: #191c1c !important;
 
   }
   
@@ -146,4 +147,37 @@ body { margin: 0; color:azure; font-family: "Geist Mono", monospace;
   100% {
     transform: rotate(360deg);
   }
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+  overflow: hidden; 
+}
+
+
+
+.image-container:hover img {
+  transform: scale(1.1); /* Aumenta el tamaño de la imagen */
+}
+
+.image-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
+  color: #fff; /* Texto blanco */
+  text-align: center;
+  padding: 5px 0; /* Espaciado interno */
+  font-size: 1rem; /* Tamaño de texto */
+  font-weight: bold;
+  border-bottom-left-radius: 8px; /* Opcional: bordes redondeados */
+  border-bottom-right-radius: 8px;
+}
+
+/* Estilo para el borde inferior */
+.border-bottom2 {
+  border-bottom: 2px solid #00dddd; /* Ajusta el color y grosor según tus necesidades */
+  padding-bottom: 10px;
 }
