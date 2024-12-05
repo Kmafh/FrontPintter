@@ -1,8 +1,8 @@
 .active-link {
     background-color: #00dddd; /* Verde */
-    color: #191c1c;
+    color: #191c1c !important;
   }
   
-  .active-link .mat-icon {
-    color: #191c1c; /* Para iconos en botones activos */
+  .active-link mat-icon {
+    color: #191c1c !important; /* Para iconos en botones activos */
   }

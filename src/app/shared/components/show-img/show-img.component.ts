@@ -1,23 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, CUSTOM_ELEMENTS_SCHEMA, OnInit } from '@angular/core';
 import { BaseService } from '../../../core/services/base/base.service';
 import { UserService } from '../../../core/services/users/users.service';
 import { Subscription } from 'rxjs';
 import { User } from '../../../core/models/user';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { environment } from '../../../../enviroments/environment';
+import { MatButtonModule } from '@angular/material/button';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { CommentsComponent } from "../comments/comments.component";
+import { CommonModule } from '@angular/common';
+import { MatMenuModule } from '@angular/material/menu';
+
 const endpoint: any = environment.baseUrl;
 const url: any = `${endpoint}/obra`;
 @Component({
   selector: 'app-show-img',
   standalone: true,
-  imports: [],
+  imports: [MatButtonModule, CommentsComponent,CommonModule, MatMenuModule,RouterLink],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './show-img.component.html',
   styleUrl: './show-img.component.scss'
 })
 export class ShowImgComponent implements OnInit{
   image:any
+  userImage:any
   id:string = ""
+  loginUser:boolean=false
   user: User | null = null;
+  data:any = {}
+  spinner:boolean=false;
   private userSubscription!: Subscription;
   
 //  Utils
@@ -40,6 +51,7 @@ ngOnInit() {
   });
   // Inicializar con el usuario almacenado en el servicio
   this.user = this.userService.user;
+  this.data = {iid:this.id,uid: this.user?.uid}
   this.route.paramMap.subscribe((params) => {
     this.id = params.get('id') || '';
     this.getImageById()
@@ -48,10 +60,17 @@ ngOnInit() {
 }
  
 getImageById() {
-  const urlPoint = `${url}/${this.id}`
+  this.spinner = true
+  const urlPoint = `${url}/obra/${this.id}`
   this.baseService.getItemsById(urlPoint).subscribe((resp:any) => {
-    this.image = resp.obra
+    this.image = resp.dataSource.obra
+    this.userImage = resp.dataSource.user
+    if(this.user?.uid === this.userImage.uid)
+      {
+        this.loginUser = true
+      }
+  this.spinner = false
+
   })
 }
-
 }

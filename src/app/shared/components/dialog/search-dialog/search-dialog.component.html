@@ -1,0 +1,24 @@
+<div class="spinner-overlay" *ngIf="spinner">
+    <div class="spinner-container">
+      <div class="spinner"></div>
+    </div>
+  </div>
+<div class="container py-2 bg-dark" *ngIf="!spinner">
+    <div class="text-end"> <a class="pointer"><span class="material-symbols-outlined " >
+        close
+        </span></a></div>
+    <mat-divider></mat-divider>
+    <section class="mt-2 py-2">
+      <div class="row" *ngFor="let row of filteredItems" >
+        <div class="col-4"><img src="{{row.img}}" alt="" style="width: 80px; height: 80px;" class="rounded"></div>
+        <div class="col-8"> {{row.name}} </div>
+        
+      
+      </div>
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"  class="bg-dark"></mat-paginator>
+      
+      
+     
+    </section>
+    
+</div>

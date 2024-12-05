@@ -1,12 +1,102 @@
+<div class="spinner-overlay bg-oscuro" *ngIf="spinner">
+  <div class="spinner-container">
+    <div class="spinner"></div>
+  </div>
+</div>
 
+<div class="container" *ngIf="!spinner">
+  <h5 class="mt-2 text-white">{{ image.name }}</h5>
+</div>
 <div class="row">
   <div class="col-md-7">
-    <div class=" card-p">
-      <img src="{{ image.img }}" alt="Previsualización" class="img-fluid rounded" />
+    <div class="swiper-container card-p mb-4">
+      <div class="swiper-slide">
+        <div class="image-container">
+          <img [src]="image.img" alt="Artwork" class="img-fluid rounded" />
+        </div>
+      </div>
+    </div>
+    <div class="my-4">
+      <h6 class="text-white">Descripción</h6>
+      {{ image.description }}
     </div>
   </div>
   <div class="col-md-4">
-<div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit consequuntur aperiam odit, quasi autem, neque, laborum minus nulla dolore ipsa nam! Sed placeat libero aperiam. Eius iusto veniam perferendis exercitationem.</div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="d-flex align-items-center mb-2">
+        <a routerLink="/profile/{{userImage.uid}}" class="pointer link">
 
+            <!-- Imagen -->
+            <img
+              [src]=" userImage?.img"
+              class="img-circle-fixed"
+              alt="Imagen Circular"
+            /></a>
+        <a routerLink="/profile/{{userImage.uid}}" class="pointer ">
+
+            <!-- Texto -->
+              <p class="mb-1 ">
+                &nbsp; {{ userImage?.name }} {{ userImage?.lastname }}
+              </p></a>
+          </div>
+        </div>
+        <div class="col-12 border-t">
+          <div class="row py-2" *ngIf="!loginUser">
+            <div class="col">
+              <button
+                disabled
+                mat-button
+                aria-label="Example icon button with a vertical three dot icon"
+              >
+                No expuesto
+              </button>
+            </div>
+            <div class="col text-end">
+              <button
+                mat-button
+                aria-label="Example icon button with a vertical three dot icon"
+              >
+                <span class="material-symbols-rounded spa"> thumb_up </span>
+              </button>
+            </div>
+          </div>
+          <div class="row py-2" *ngIf="loginUser">
+            <div class="col">
+              <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                <span class="material-symbols-rounded"> menu </span>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item>
+                  <mat-icon>dialpad</mat-icon>
+                  <span>Redial</span>
+                </button>
+                <button mat-menu-item disabled>
+                  <mat-icon>voicemail</mat-icon>
+                  <span>Check voice mail</span>
+                </button>
+                <button mat-menu-item>
+                  <mat-icon>notifications_off</mat-icon>
+                  <span>Disable alerts</span>
+                </button>
+              </mat-menu>
+            </div>
+            <div class="col text-end">
+              <button
+                mat-button
+                aria-label="Example icon button with a vertical three dot icon" disabled
+              >
+                <span class="material-symbols-rounded spa"> thumb_up </span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <app-comments [data]="data"></app-comments>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

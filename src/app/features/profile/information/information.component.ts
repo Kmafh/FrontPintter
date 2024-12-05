@@ -6,6 +6,11 @@ import { MatListModule } from '@angular/material/list';
 import { MatDialog } from '@angular/material/dialog';
 import { Utils } from '../../../core/utils/utils';
 import { EditUserComponent } from '../../../shared/components/dialog/edit-user/edit-user.component';
+import { UserService } from '../../../core/services/users/users.service';
+import { BaseService } from '../../../core/services/base/base.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { User } from '../../../core/models/user';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-information',
@@ -16,9 +21,30 @@ import { EditUserComponent } from '../../../shared/components/dialog/edit-user/e
 })
 export class InformationComponent implements OnInit{
   @Input() user:any 
-
   userFormat:any
+  userLogin: User | null = null;
+  userProfile: boolean = false;
+  private userSubscription!: Subscription;
+  constructor(
+    public baseService: BaseService,
+    private userService: UserService,
+    private _snackBar: MatSnackBar,
+  
+  ) {
+    
+  }
   ngOnInit(): void {
+    // Suscribirse a los cambios de usuario
+  this.userSubscription = this.userService.userChange.subscribe((user) => {
+    this.userLogin = user;
+  });
+
+  if(this.userLogin?.uid === this.user.uid)
+  {
+    this.userProfile = true
+  }
+  // Inicializar con el usuario almacenado en el servicio
+  this.user = this.userService.user;
     this.userFormat = { ...this.user };
     this.userFormat.role = this.user.role === 'USER_ROLE'?'Usuario':'Admin';
     this.userFormat.createAt = Utils.transform(this.user.createAt);
@@ -47,7 +73,7 @@ openDialog(group:any): void {
   });
 }
 ngOnChanges(changes: any): void {
-  if (changes['user'].currentValue && changes['user'].previousValue) {
+  if (changes['user'].currentValue ) {
     this.userFormat = {...changes['user'].currentValue};
     this.userFormat.role = this.userFormat.role === 'USER_ROLE'?'Usuario':'Admin';
     this.userFormat.createAt = Utils.transform(this.userFormat.createAt);

@@ -1,19 +1,13 @@
-<swiper-container>
-  <swiper-slide
-    ><div class="image-container">
+<swiper-container >
+  <swiper-slide *ngFor="let img of data"
+    > <a class="pointer" (click)="url(img)"><div >
       <img
-        src="assets/img/art/1.jpg"
+        [src]="img.img"
         alt="Artwork"
         class="img-fluid rounded-top"
       />
-      <div class="image-title">Título de la imagen</div>
-    </div></swiper-slide
+      <div class="image-title">{{img.name}}</div>
+    </div></a></swiper-slide
   >
-  <swiper-slide>Slide 2</swiper-slide>
-  <swiper-slide>Slide 3</swiper-slide>
-  <swiper-slide>Slide 4</swiper-slide>
-  <swiper-slide>Slide 5</swiper-slide>
-  <swiper-slide>Slide 6</swiper-slide>
-  <swiper-slide>Slide 7</swiper-slide>
-  <swiper-slide>Slide 8</swiper-slide>
+  
 </swiper-container>

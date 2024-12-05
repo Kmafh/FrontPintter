@@ -53,7 +53,7 @@
               >{{ userFormat?.pro }} 
             </div>
             <div class="col text-end">
-              <button mat-icon-button (click)="openDialog('pro')">
+              <button mat-icon-button (click)="openDialog('pro')" *ngIf="userProfile">
                 <mat-icon>edit</mat-icon>
               </button>
             </div>
@@ -74,7 +74,7 @@
               >{{ userFormat?.city  }}
             </div>
             <div class="col text-end">
-              <button mat-icon-button (click)="openDialog('city')">
+              <button mat-icon-button (click)="openDialog('city')" *ngIf="userProfile">
                 <mat-icon>edit</mat-icon>
               </button>
             </div>
@@ -93,7 +93,7 @@
               >{{ userFormat?.study}}
             </div>
             <div class="col text-end">
-              <button mat-icon-button (click)="openDialog('study')">
+              <button mat-icon-button (click)="openDialog('study')" *ngIf="userProfile">
                 <mat-icon>edit</mat-icon>
               </button>
             </div>
@@ -108,7 +108,7 @@
                   >{{ userFormat?.curs}}
                 </div>
                 <div class="col text-end">
-                  <button mat-icon-button (click)="openDialog('curs')">
+                  <button mat-icon-button (click)="openDialog('curs')" *ngIf="userProfile">
                     <mat-icon>edit</mat-icon>
                   </button>
                 </div>
@@ -125,7 +125,7 @@
                   >{{ userFormat?.job }}
                 </div>
                 <div class="col text-end">
-                  <button mat-icon-button (click)="openDialog('job')">
+                  <button mat-icon-button (click)="openDialog('job')" *ngIf="userProfile">
                     <mat-icon>edit</mat-icon>
                   </button>
                 </div>

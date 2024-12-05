@@ -59,8 +59,8 @@ export class ObrasComponent implements OnInit{
  }
 
  getObras() {
-
-  this.baseService.getItemsByUid(url).subscribe((resp:any) => {
+  const urlPoint = `${url}/${this.user?.uid}`
+  this.baseService.getItemsByUid(urlPoint).subscribe((resp:any) => {
     this.dataSource = resp.obra
   })
  }
@@ -72,7 +72,7 @@ export class ObrasComponent implements OnInit{
 
   dialogRef.afterClosed().subscribe(result => {
     console.log('The dialog was closed');
-    
+    this.getObras()
   });
 }
 }

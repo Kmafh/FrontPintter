@@ -1,0 +1,51 @@
+<div class="row border-t border-b">
+  <div class="col-12 mt-4">
+    <app-dynamic-form
+      [formData]="dynamicGroup"
+      (formGroupChange)="onFormGroupChange($event)"
+    ></app-dynamic-form>
+  </div>
+  <div class="col-12 d-flex align-items-end pb-4">
+    <button
+      mat-flat-button
+      aria-label="Example icon button with a vertical three dot icon"
+      (click)="send()"
+      style="width: 100%"
+    >
+      <span class="material-symbols-outlined spa"> send </span>
+    </button>
+  </div>
+  <div class="spinner-overlay-small bg-oscuro" *ngIf="spinner">
+    <div class="spinner-container-small">
+      <div class="spinner"></div>
+    </div>
+  </div>
+  <div *ngIf="!spinner">
+    <div class="col-12 d-flex pb-4 pe-4" *ngFor="let message of dataSource">
+        <div class="col-12">
+          <div class="row">
+            <div class="col-2 d-flex align-items-center mb-2">
+              <!-- Imagen -->
+              <img
+                [src]="message?.user.img"
+                class="img-circle-fixed-small"
+                alt="Imagen Circular"
+              />
+    
+              <!-- Texto -->
+            </div>
+            <div class="col-10 mb-1 text-white rounded bg-dark  pt-2">
+                
+                <div>
+                    {{ message.comment.comment }}
+                </div>
+                <div class="text-end">
+                    <label style="font-size: 10px;">{{ message.comment.createAt |date:"short" }}</label>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  
+</div>

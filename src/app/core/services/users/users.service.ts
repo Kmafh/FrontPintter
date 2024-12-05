@@ -136,7 +136,7 @@ export class UserService {
     )
   }
   getUserByUID(uid:any) {
-    return this.http.get(`${endpoint}/user/us/${uid}`, {
+    return this.http.get(`${endpoint}/user/${uid}`, {
       headers: {
         'x-token': this.token,
       }
@@ -144,7 +144,7 @@ export class UserService {
     .pipe(
       delay(500),
       map( (resp:any) => {
-         let user = resp.user[0] as User;
+         let user = resp.user as User;
         return {
           user
         };

@@ -6,7 +6,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatMenuModule} from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
-import {  RouterModule } from '@angular/router';
+import {  Router, RouterModule } from '@angular/router';
 @Component({
   selector: 'app-nadvar',
   standalone: true,
@@ -16,4 +16,12 @@ import {  RouterModule } from '@angular/router';
 })
 export class NadvarComponent {
   color=false
+
+  constructor(private router:Router) {
+
+  }
+  closedSession() {
+    sessionStorage.clear();
+    this.router.navigate([''])
+  }
 }

@@ -26,6 +26,14 @@ export const routes: Routes = [
     ],
   },
   {
+    path: 'profile/:uid',
+    component: PagesComponent,
+    canActivate: [AuthGuard],
+    children: [
+      { path: '', component: ProfileComponent, data: { title: 'Dashboard' } },
+    ],
+  },
+  {
     path: 'obra',
     component: PagesComponent,
     canActivate: [AuthGuard],

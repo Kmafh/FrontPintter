@@ -14,7 +14,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { RouterModule } from '@angular/router';
-
+import { FormsModule } from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCardModule } from '@angular/material/card';
 @Component({
   selector: 'app-galery',
   standalone: true,
@@ -25,42 +28,43 @@ import { RouterModule } from '@angular/router';
     MatInputModule,
     MatFormFieldModule,
     MatMenuModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    MatSelectModule,
+    MatRadioModule,MatCardModule
   ],
   templateUrl: './galery.component.html',
-  styleUrl: './galery.component.scss',
+  styleUrls: ['./galery.component.scss'],
 })
 export class GaleryComponent implements OnChanges {
   @Input() dataSource: any = [];
-  allImages: string[] = []; // Lista completa de imágenes
+  allImages: any[] = []; // Lista completa de imágenes
   displayedImages: any[] = []; // Imágenes visibles actualmente
   pageSize: number = 10; // Tamaño del lote de carga
   currentPage: number = 0; // Página actual para la carga
+  searchTerm: string = ''; // Término de búsqueda
+  filter:boolean=false
   @ViewChild('scrollAnchor') scrollAnchor!: ElementRef;
 
   ngOnInit(): void {
-    // Simular lista de imágenes (puedes sustituirlo por un fetch desde una API)
     this.allImages = this.dataSource;
-    // this.loadMoreImages(); // Cargar las primeras imágenes
-  }
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes);
-    this.allImages = changes['dataSource']?.currentValue;
     this.loadMoreImages();
   }
-  // Función para cargar más imágenes
-  loadMoreImages(): void {
-    if (this.allImages.length > 14) {
-      const startIndex = this.currentPage * this.pageSize;
-      const endIndex = startIndex + this.pageSize;
-      const newImages = this.allImages.slice(startIndex, endIndex);
 
-      this.displayedImages = [...this.displayedImages, ...newImages];
-      this.currentPage++;
-    } else {
-      this.displayedImages = [...this.allImages];
-
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['dataSource']) {
+      this.allImages = changes['dataSource'].currentValue;
+      this.filterImages();
     }
+  }
+
+  // Método para cargar más imágenes
+  loadMoreImages(): void {
+    const startIndex = this.currentPage * this.pageSize;
+    const endIndex = startIndex + this.pageSize;
+    const newImages = this.allImages.slice(startIndex, endIndex);
+    this.displayedImages = [...this.displayedImages, ...newImages];
+    this.currentPage++;
   }
 
   // Detectar si el scroll está cerca del final
@@ -72,8 +76,17 @@ export class GaleryComponent implements OnChanges {
       const viewportHeight = window.innerHeight;
 
       if (bottom <= viewportHeight) {
-        this.loadMoreImages(); // Cargar más imágenes si llegamos al final
+        this.loadMoreImages();
       }
     }
+  }
+
+  // Método para filtrar imágenes según el término de búsqueda
+  filterImages(): void {
+    const filteredImages = this.allImages.filter((image) =>
+      image.name.toLowerCase().includes(this.searchTerm.toLowerCase())
+    );
+    this.displayedImages = filteredImages.slice(0, this.pageSize); // Limita a las primeras imágenes
+    this.currentPage = 1; // Reinicia la paginación
   }
 }
